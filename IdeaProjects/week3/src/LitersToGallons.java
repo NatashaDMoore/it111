@@ -3,7 +3,7 @@ public class LitersToGallons {
 
         // gal * 3.785 = l
 
-        double l, gal;                                      // Initialize liters
+        double l, gal;
         int counter = 0;                                        // Initialize the counter
         String galUnit;
 
