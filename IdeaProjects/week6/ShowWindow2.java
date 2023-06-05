@@ -35,8 +35,11 @@ public class ShowWindow2 {
                 myLabel2.setBounds(5, 90, 300, 30);
 
 
-            JTextField myText2 = new JTextField(5);
-                myText2.setBounds(5,130,300,30);
+
+            // OLGA - My second text field ignored my setBounds rules. It became the size of the entire window. I was not able to troubleshoot so I left it out.
+
+            //JTextField myText2 = new JTextField(5);
+            //    myText2.setBounds(5,130,300,30);
 
 
 
@@ -46,7 +49,7 @@ public class ShowWindow2 {
             window.add(myLabel);
             window.add(myText);
             window.add(myLabel2);
-            window.add(myText2);
+            //window.add(myText2);
 
             window.setVisible(true);
 
