@@ -39,7 +39,7 @@ public class DailySpecialsExpanded {
                 specials = input.next();                                            // only if sat/sun is true, user is allowed to input specials again.
             }
         }
-        while(!saturday && !sunday){
+        if(!saturday && !sunday){
                 switch (specials) {
 
                     // Cases will be the day of the week
@@ -94,8 +94,8 @@ public class DailySpecialsExpanded {
                     System.out.println();
                 }
                 System.out.println("Thanks for coming to the Intro To Java Stand. Have a caffeinated day!");
-                break;
-        } // end while
+
+        } // end if
 
     } // end main
 }
