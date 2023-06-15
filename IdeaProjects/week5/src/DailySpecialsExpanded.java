@@ -36,8 +36,6 @@ public class DailySpecialsExpanded {
             if (!wrongDay) {
                 switch (specials) {
 
-                    // Cases will be the day of the week
-
                     case "Monday" -> {
                         coffee = "latte";
                         price = 4.95;
@@ -45,6 +43,7 @@ public class DailySpecialsExpanded {
                         System.out.println("How many " + coffee + "s would you like to order?");
                         quantity = input.nextInt();
                     }
+
                     case "Tuesday" -> {
                         coffee = "frap";
                         price = 5.95;
@@ -52,6 +51,7 @@ public class DailySpecialsExpanded {
                         System.out.println("How many " + coffee + "s would you like to order?");
                         quantity = input.nextInt();
                     }
+
                     case "Wednesday" -> {
                         coffee = "Cappuccino";
                         price = 4.35;
@@ -59,6 +59,7 @@ public class DailySpecialsExpanded {
                         System.out.println("How many " + coffee + "s would you like to order?");
                         quantity = input.nextInt();
                     }
+
                     case "Thursday" -> {
                         coffee = "Drip";
                         price = 2.95;
@@ -66,6 +67,7 @@ public class DailySpecialsExpanded {
                         System.out.println("How many " + coffee + "s would you like to order?");
                         quantity = input.nextInt();
                     }
+
                     case "Friday" -> {
                         coffee = "Espresso";
                         price = 3.95;
@@ -85,7 +87,12 @@ public class DailySpecialsExpanded {
                     System.out.println("Great! We will start making your " + coffee + " for you now. It will cost $" + price + ".");
                     System.out.println();
 
-                } else if (quantity > 1 && quantity < 10) {
+                } else if (quantity >= 2 && quantity <= 4) {
+                    System.out.print(quantity + " " + coffee + "s coming right up. Your total will be $");
+                    System.out.printf("%.2f", price * quantity);
+                    System.out.print(".");
+
+                } else if (quantity >= 5 && quantity < 10) {
                     System.out.print(quantity + " " + coffee + "s coming right up. You qualify for our group discount of 10%! Your total will be $");
                     System.out.printf("%.2f", price * quantity * 0.9);
                     System.out.print(".");
