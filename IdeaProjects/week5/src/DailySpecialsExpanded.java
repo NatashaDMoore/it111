@@ -4,75 +4,69 @@ public class DailySpecialsExpanded {
 
     public static void main(String[] arg) {
 
+
+        Scanner input = new Scanner(System.in);
+
         String specials;
-
-        Scanner input = new Scanner(System.in);                                 // This line accesses the Scanner library and allows for the user to input data
-
-        System.out.println("Please enter a weekday (Monday - Friday only).");
-
-        specials = input.next();                                              //assigning input to specials
-
-        //input.close();                                                        // no longer asking for input past this point. Closes the input.
-
-//--------------------------------------------------------------------
-//      COFFEE
-//--------------------------------------------------------------------
-
         String coffee = "";
         double price = 0;
         int quantity = 0;
 
-        // declare boolean for error
-        // Write boolean class if else statement
-        boolean saturday = specials.equals("Saturday");
-        boolean sunday = specials.equals("Sunday");
+    // -------- OLGA ---------
+        // I'm not sure how to create this boolean without initializing specials
+        // Also not sure how to create one boolean with two objects (Saturday and Sunday)
 
-        // if statement for weekend entry
+        boolean wrongDay = specials.equals("Sunday");
+
+    // Old booleans
+        // boolean saturday = specials.equals("Saturday");
+        // boolean sunday = specials.equals("Sunday");
+
+        System.out.println("Please enter a weekday (Monday - Friday only).");
+        //specials = input.next();
 
 
+        while (wrongDay) {
+
+            specials = input.next();
+
+            System.out.println("You have entered a weekend. Please enter a weekday (Monday - Friday)");
 
 
-        while(saturday || sunday) {
-
-            if (saturday || sunday) {                                                // || means or
-                System.out.println("Please enter a weekday (Monday - Friday)");     // error message if true
-                specials = input.next();                                            // only if sat/sun is true, user is allowed to input specials again.
-            }
-        }
-        if(!saturday && !sunday){
+            if (!wrongDay) {
                 switch (specials) {
 
                     // Cases will be the day of the week
 
-                    case "Monday" -> {                       // COLON!
+                    case "Monday" -> {
                         coffee = "latte";
                         price = 4.95;
                         System.out.println(specials + "'s cafe du jour is a " + coffee + " for $" + price);
                         System.out.println("How many " + coffee + "s would you like to order?");
                         quantity = input.nextInt();
                     }
-                    case "Tuesday" -> {                      // COLON!
+                    case "Tuesday" -> {
                         coffee = "frap";
                         price = 5.95;
                         System.out.println(specials + "'s cafe du jour is a " + coffee + " for $" + price);
                         System.out.println("How many " + coffee + "s would you like to order?");
                         quantity = input.nextInt();
                     }
-                    case "Wednesday" -> {                    // COLON!
+                    case "Wednesday" -> {
                         coffee = "Cappuccino";
                         price = 4.35;
                         System.out.println(specials + "'s cafe du jour is a " + coffee + " for $" + price);
                         System.out.println("How many " + coffee + "s would you like to order?");
                         quantity = input.nextInt();
                     }
-                    case "Thursday" -> {                     // COLON!
+                    case "Thursday" -> {
                         coffee = "Drip";
                         price = 2.95;
                         System.out.println(specials + "'s cafe du jour is a " + coffee + " for $" + price);
                         System.out.println("How many " + coffee + "s would you like to order?");
                         quantity = input.nextInt();
                     }
-                    case "Friday" -> {                       // COLON!
+                    case "Friday" -> {
                         coffee = "Espresso";
                         price = 3.95;
                         System.out.println(specials + "'s cafe du jour is an " + coffee + " for $" + price);
@@ -85,17 +79,37 @@ public class DailySpecialsExpanded {
 
                 if (quantity <= 0) {
                     System.out.println("No " + coffee + "? Bummer!");
+                    System.out.println();
+
                 } else if (quantity == 1) {
                     System.out.println("Great! We will start making your " + coffee + " for you now. It will cost $" + price + ".");
+                    System.out.println();
+
+                } else if (quantity > 1 && quantity < 10) {
+                    System.out.print(quantity + " " + coffee + "s coming right up. You qualify for our group discount of 10%! Your total will be $");
+                    System.out.printf("%.2f", price * quantity * 0.9);
+                    System.out.print(".");
+                    System.out.println("You saved $");
+                    System.out.printf("%.2f", price * quantity * 0.1);
+                    System.out.println(" today.");
+                    System.out.println();
+
                 } else {
-                    System.out.print(quantity + " " + coffee + "s coming right up. Your total will be $");
-                    System.out.printf("%.2f", price * quantity);
+                    System.out.print(quantity + " " + coffee + "s coming right up. You qualify for our group discount of 20%! Your total will be $");
+                    System.out.printf("%.2f", price * quantity * 0.8);
                     System.out.print(".");
                     System.out.println();
+                    System.out.println("You saved $");
+                    System.out.printf("%.2f", price * quantity * 0.2);
+                    System.out.println(" today.");
+                    System.out.println();
+
                 }
                 System.out.println("Thanks for coming to the Intro To Java Stand. Have a caffeinated day!");
 
-        } // end if
+            } // end if
+
+        } // end while
 
     } // end main
 }
